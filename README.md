@@ -1,0 +1,1 @@
+i am going to be creating a virtual pet in the command line, then try and make a GUI for this project.

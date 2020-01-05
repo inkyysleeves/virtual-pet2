@@ -1,0 +1,27 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "making a virtual pet in the command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inkyysleeves/virtual-pet2.git"
+  },
+  "keywords": [
+    "virtual",
+    "pet",
+    "2"
+  ],
+  "author": "nathan saide",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inkyysleeves/virtual-pet2/issues"
+  },
+  "homepage": "https://github.com/inkyysleeves/virtual-pet2#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}
