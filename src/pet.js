@@ -29,7 +29,7 @@ function Pet(name, age) {
       }
     },
     checkUp: function() {
-      if ((this.hunger >=5) && (this.fitness <= 3)) {
+      if (this.hunger >= 5 && this.fitness <= 3) {
         return "I am hungry AND I need a walk";
       }
       if (this.fitness <= 3) {
@@ -37,6 +37,23 @@ function Pet(name, age) {
       }
       if (this.hunger >= 5) {
         return "I am hungry";
+      }
+      if (!this.hunger >= 5 || !this.fitness <= 3) {
+        return "I feel great!";
+      }
+    },
+
+    isAlive: function() {
+      if (this.fitness <= 0) {
+        return false;
+      }
+      if (this.hunger >= 10) {
+          return false;
+      }
+      if (this.age >= 30) {
+          return false;
+      } else {
+          return true;
       }
     }
   };
