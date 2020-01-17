@@ -14,6 +14,9 @@ function Pet(name, age) {
     this.fitness -= 3;
   };
   Pet.prototype = {
+    get isAlive() {
+        return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+      },
     walk: function() {
       if (this.fitness + 4 <= MAXIMUM_FITNESS) {
         this.fitness += 4;
@@ -22,6 +25,9 @@ function Pet(name, age) {
       }
     },
     feed: function() {
+      if (!this.isAlive()) {
+        throw new Error("Your pet is no longer alive :(");
+      }
       if (this.hunger - 3 >= MINIMUM_HUNGER) {
         this.hunger -= 3;
       } else {
@@ -29,6 +35,9 @@ function Pet(name, age) {
       }
     },
     checkUp: function() {
+      if (!this.isAlive()) {
+        throw new Error("Your pet is no longer alive :(");
+      }
       if (this.hunger >= 5 && this.fitness <= 3) {
         return "I am hungry AND I need a walk";
       }
@@ -48,12 +57,12 @@ function Pet(name, age) {
         return false;
       }
       if (this.hunger >= 10) {
-          return false;
+        return false;
       }
       if (this.age >= 30) {
-          return false;
+        return false;
       } else {
-          return true;
+        return true;
       }
     }
   };

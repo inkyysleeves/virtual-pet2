@@ -83,6 +83,13 @@ describe("feed", () => {
 
     expect(pet.hunger).toEqual(0);
   });
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("rover");
+
+    pet.age = 30;
+
+    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+  });
 });
 describe("check up", () => {
   it("checks if the pet needs walking", () => {
@@ -97,7 +104,7 @@ describe("check up", () => {
 
     pet.hunger = 6;
     pet.checkUp();
-    expect(pet.checkUp()).toEqual("I am hungry")
+    expect(pet.checkUp()).toEqual("I am hungry");
   });
   it("returns I am hungry AND I need a walk if hunger above 5 & fitness under 3", () => {
     const pet = new Pet("rover");
@@ -111,37 +118,44 @@ describe("check up", () => {
     const pet = new Pet("rover");
 
     pet.fitness = 4;
-    pet,hunger = 4;
+    pet, (hunger = 4);
     pet.checkUp();
-    expect(pet.checkUp()).toEqual("I feel great!")
-  })
+    expect(pet.checkUp()).toEqual("I feel great!");
+  });
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("rover");
+
+    pet.age = 30;
+
+    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+  });
 });
 describe("isAlive", () => {
-it("checks to see if the pet isAlive?", () => {
-  const pet = new Pet("rover");
+  it("checks to see if the pet isAlive?", () => {
+    const pet = new Pet("rover");
 
-  pet.fitness = 0;
-  pet.isAlive();
-  expect(pet.isAlive()).toBe(false);
-});
-it("checks if the pets hunger is 10 or more", () => {
-  const pet = new Pet("rover");
+    pet.fitness = 0;
+    pet.isAlive();
+    expect(pet.isAlive()).toBe(false);
+  });
+  it("checks if the pets hunger is 10 or more", () => {
+    const pet = new Pet("rover");
 
-  pet.hunger = 11;
-  pet.isAlive();
-  expect(pet.isAlive()).toBe(false);
-});
-it("checks if the pets age is 30 or more", () => {
-  const pet = new Pet("rover");
+    pet.hunger = 11;
+    pet.isAlive();
+    expect(pet.isAlive()).toBe(false);
+  });
+  it("checks if the pets age is 30 or more", () => {
+    const pet = new Pet("rover");
 
-  pet.age = 31;
-  pet.isAlive();
-  expect(pet.isAlive()).toBe(false);
-});
-it("it checks if the pet is alive and well", () => {
-  const pet = new Pet("rover");
+    pet.age = 31;
+    pet.isAlive();
+    expect(pet.isAlive()).toBe(false);
+  });
+  it("it checks if the pet is alive and well", () => {
+    const pet = new Pet("rover");
 
-  pet.isAlive();
-  expect(pet.isAlive()).toBe(true);
-})
+    pet.isAlive();
+    expect(pet.isAlive()).toBe(true);
+  });
 });
