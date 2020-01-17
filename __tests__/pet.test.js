@@ -88,7 +88,7 @@ describe("feed", () => {
 
     pet.age = 30;
 
-    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+    expect(() => pet.feed()).toThrow("Your pet is dead");
   });
 });
 describe("check up", () => {
@@ -126,8 +126,9 @@ describe("check up", () => {
     const pet = new Pet("rover");
 
     pet.age = 30;
+    console.log(pet.isAlive())
 
-    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+    expect(() => pet.feed()).toThrow("Your pet is dead");
   });
 });
 describe("isAlive", () => {

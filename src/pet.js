@@ -2,8 +2,9 @@ const pet = require("../src/pet");
 
 const MAXIMUM_FITNESS = 10;
 const MINIMUM_HUNGER = 0;
+const DEAD_MESSAGE = "Your pet is dead"
 
-function Pet(name, age) {
+function Pet(name, ) {
   this.name = name;
   this.age = 0;
   this.hunger = 0;
@@ -26,7 +27,7 @@ function Pet(name, age) {
     },
     feed: function() {
       if (!this.isAlive()) {
-        throw new Error("Your pet is no longer alive :(");
+        throw new Error(DEAD_MESSAGE);
       }
       if (this.hunger - 3 >= MINIMUM_HUNGER) {
         this.hunger -= 3;
@@ -36,7 +37,7 @@ function Pet(name, age) {
     },
     checkUp: function() {
       if (!this.isAlive()) {
-        throw new Error("Your pet is no longer alive :(");
+        throw new Error(DEAD_MESSAGE);
       }
       if (this.hunger >= 5 && this.fitness <= 3) {
         return "I am hungry AND I need a walk";
